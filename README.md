@@ -1,2 +1,2 @@
-# computational_fluid_dynamics_assignment
+# Computational Fluid Dynamics Assignment
 will be updated soon
