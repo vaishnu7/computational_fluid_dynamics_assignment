@@ -1,3 +1,4 @@
+%%
 %LW scheme - function 1
 clc;
 clear;
@@ -18,8 +19,14 @@ x = xmin - dx : dx : xmax + dx;
 
 %initial condition
 u0 = sin (2*pi*x);
-u = u0;
-un = u0;
+u1 = u0;
+u2 = u0;
+u3 = u0;
+u4 = u0;
+un1 = u0;
+un2 = u0;
+un3 = u0;
+un4 = u0;
 
 lambda1 = 0.25;
 lambda2 = 0.5;
@@ -30,22 +37,41 @@ lambda4 = 1.0;
 nsteps = tmax/dt;
 for n =1 : nsteps
     %boundary cond
-    u(1)=sin(2*pi*(t-0.5));
+    u1(1)=sin(2*pi*(t-0.5));
+    u2(1)=sin(2*pi*(t-0.5));
+    u3(1)=sin(2*pi*(t-0.5));
+    u4(1)=sin(2*pi*(t-0.5));
     %calculate Lax–Wendroff scheme
     for i = 2:N+2
-        un(i) = u(i) - (lambda3/2)*(u(i+1)-u(i-1)) + (lambda3^2/2)*(u(i+1)-2*u(i)+u(i-1));
+        un1(i) = u1(i) - (lambda1/2)*(u1(i+1)-u1(i-1)) + (lambda1^2/2)*(u1(i+1)-2*u1(i)+u1(i-1));
+    end
+    for i = 2:N+2
+        un2(i) = u2(i) - (lambda2/2)*(u2(i+1)-u2(i-1)) + (lambda2^2/2)*(u2(i+1)-2*u2(i)+u2(i-1));
+    end
+    for i = 2:N+2
+        un3(i) = u3(i) - (lambda3/2)*(u3(i+1)-u3(i-1)) + (lambda3^2/2)*(u3(i+1)-2*u3(i)+u3(i-1));
+    end
+    for i = 2:N+2
+        un4(i) = u4(i) - (lambda4/2)*(u4(i+1)-u4(i-1)) + (lambda4^2/2)*(u4(i+1)-2*u4(i)+u4(i-1));
     end
     %exact
     exact = sin (2*pi*(x - C*t));
     %update
     t = t+dt;
-    u = un;
+    u1 = un1;
+    u2 = un2;
+    u3 = un3;
+    u4 = un4;
     %plot
     plot(x,exact,'r-');
     hold on
-    plot (x,u,'bo-','markerfacecolor','b');
+    plot (x,u1,'--','markerfacecolor','g');
+    plot (x,u2,'--','markerfacecolor','b');
+    plot (x,u3,'--','markerfacecolor','k');
+    plot (x,u4,'--','markerfacecolor','r');
     hold off
-    axis([xmin,xmax,-0.5,1.5])
+    legend('exact sol','lambda = 0.25','lambda = 0.50','lambda = 0.75','lambda = 1.00');
+    axis([xmin,xmax,-1.5,1.5])
     xlabel('x','fontsize',16)
     ylabel('U(t,x)','fontsize',16)
     title(sprintf('time = %1.2f',t),'fontsize',16)
