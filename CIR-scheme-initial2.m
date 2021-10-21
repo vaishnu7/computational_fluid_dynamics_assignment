@@ -1,5 +1,5 @@
 %%
-%CIR scheme - function 2
+%LW scheme - function 2
 clc;
 clear;
 close all;
@@ -11,6 +11,7 @@ N = 50;
 dt = 0.009;
 t = 0;
 tmax = 0.1;
+C = 1;
 
 %discretise the domain
 dx = (xmax - xmin)/N;
@@ -26,7 +27,6 @@ for i = x
     end
     index = index + 1;
 end
-
 u1 = u0;
 u2 = u0;
 u3 = u0;
@@ -36,6 +36,7 @@ un2 = u0;
 un3 = u0;
 un4 = u0;
 
+
 lambda1 = 0.25;
 lambda2 = 0.5;
 lambda3 = 0.75;
@@ -44,19 +45,19 @@ lambda4 = 1.0;
 %time loop
 nsteps = tmax/dt;
 for n = 1 : nsteps
-
-    %calculate CIR scheme
+ 
+    %calculate LW scheme
     for i = 2:N+2
-        un1(i) = u1(i) - lambda1*(u1(i)-u1(i-1));
+        un1(i) = u1(i) - (lambda1/2)*(u1(i+1)-u1(i-1)) + (lambda1^2/2)*(u1(i+1)-2*u1(i)+u1(i-1));
     end
     for i = 2:N+2
-        un2(i) = u2(i) - lambda2*(u2(i)-u2(i-1));
+        un2(i) = u2(i) - (lambda2/2)*(u2(i+1)-u2(i-1)) + (lambda2^2/2)*(u2(i+1)-2*u2(i)+u2(i-1));
     end
     for i = 2:N+2
-        un3(i) = u3(i) - lambda3*(u3(i)-u3(i-1));
+        un3(i) = u3(i) - (lambda3/2)*(u3(i+1)-u3(i-1)) + (lambda3^2/2)*(u3(i+1)-2*u3(i)+u3(i-1));
     end
     for i = 2:N+2
-        un4(i) = u4(i) - lambda4*(u4(i)-u4(i-1));
+        un4(i) = u4(i) - (lambda4/2)*(u4(i+1)-u4(i-1)) + (lambda4^2/2)*(u4(i+1)-2*u4(i)+u4(i-1));
     end
     %update
     t = t+dt;
