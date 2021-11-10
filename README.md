@@ -2,7 +2,9 @@
 
 ## Question: 
 Consider 1-D Hyperbolic equation U_t  + cU_x  = 0 where U is scalar and 𝑐 is a constant wave speed (c > 0). Taking the computational domain 0 ≤ x ≤ 1, start with the following initial condition, 
+
 a) U (x,0) =  sin⁡(2πx) 
+
 b) U (x,0) = {(1 when x≤0.25 and 0 when x>0.25)}
 
 Use Courant-Isaacson-Rees (CIR) method and Lax-Wendroff Scheme, advance the solutions by a distance equal to the half of the length of the computational domain with courant number λ=0.25,0.5,0.75,1.0 . Make plots of exact and computed solution for a given λ. Comment on the results based on the theoretical analysis
