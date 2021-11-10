@@ -11,14 +11,17 @@ Use Courant-Isaacson-Rees (CIR) method and Lax-Wendroff Scheme, advance the solu
 
 ## Answers for Initial condition (a):
 
-The first code is for CIR scheme when initial condition is U (x, 0) = sin(2πx), periodic boundary condition and when N = 100. 
+The code " CIR-scheme-initial1.m " is for CIR scheme when initial condition is U (x, 0) = sin(2πx), periodic boundary condition and when N = 100. 
+
 Graphs obtained for CIR-Scheme:
 When N = 100;
 ![Screenshot (1518)](https://user-images.githubusercontent.com/39788520/141118039-abc1c6f4-22aa-499e-a9ff-be740cb74a5e.png)
 When N = 50;
 ![Screenshot (1522)](https://user-images.githubusercontent.com/39788520/141118199-41475188-23c4-48ae-9142-e1bd3a50fbc1.png)
-The second code is for Lax-Wendroff scheme when initial condition is U (x,0) =  sin(2πx), periodic boundary condition and when N = 100.
-Graphs obtained for CIR-Scheme:
+
+The code "LW-SCHEME-func1.m " is for Lax-Wendroff scheme when initial condition is U (x,0) =  sin(2πx), periodic boundary condition and when N = 100.
+
+Graphs obtained for Lax-Wendroff Scheme:
 When N = 100;
 ![Screenshot (1523)](https://user-images.githubusercontent.com/39788520/141118515-cbcbf0cf-f19e-4dc5-adad-2d1c8723ff2e.png)
 When N = 50;
@@ -30,12 +33,15 @@ Now, coming to the type or error we can clearly see that while using CIR scheme 
 
 
 ## Answers for Initial condition (b):
-The next code is for CIR scheme when initial condition is U(x,0) = (1 when x≤0.25 and 0 when x>0.25) when N = 100.
+The code " CIR-scheme-initial2.m " is for CIR scheme when initial condition is U(x,0) = (1 when x≤0.25 and 0 when x>0.25) when N = 100.
+
 Graphs obtained for CIR-Scheme:
 When N = 100;
 ![Screenshot (1524)](https://user-images.githubusercontent.com/39788520/141118997-1363a88c-6867-44f7-98bc-c1d15f82e780.png)
 When N = 50;
 ![Screenshot (1525)](https://user-images.githubusercontent.com/39788520/141119148-1df403df-46dc-490b-894d-fa25323665db.png)
+
+The code "LW-SCHEME-func2.m " is for Lax-Wendroff scheme for the second initial condition.
 
 Graphs obtained for Lax-Wendroff scheme:
 When N = 100;
